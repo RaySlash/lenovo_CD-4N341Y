@@ -1,0 +1,14 @@
+URL: cvs: "anoncvs@anoncvs.NetBSD.org:/cvsroot" src/usr.bin/grep/
+Version: 20040505 (netbsd-5-1-RC3)
+License: BSD
+License File: NOTICE
+Description:
+The NetBSD version of the UNIX grep tool.
+Allows easy searching for regexes.
+
+Local Modifications:
+- Removed the manpage (4-clause BSD licensed, everything else is
+  2-clause per file headers)
+- Removed -F option (which breaks POSIX, but requires regex options we
+  don't support).
+- Use grepfgetln() to substitute for fgetln(), which we don't have.

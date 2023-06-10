@@ -1,0 +1,24 @@
+menuconfig AMLOGIC_LEDSCREEN
+	bool "ledscreen devices"
+	---help---
+	  Say Y here to get to see options for sensor device drivers from
+	  all categories. This option alone does not add any kernel code.
+
+	  If you say N,all options in this submenu will be skipped and disabled.
+
+if AMLOGIC_LEDSCREEN
+
+config AMLOGIC_LEDSCREEN_TM1640
+	tristate "ledscreen tm1640 driver"
+	default n
+	help
+	  Say yes here to support tm1640 and proximity
+
+config AMLOGIC_LEDSCREEN_SN3112
+	tristate "ledscreen sn3112 driver"
+	default n
+	help
+	  Say yes here to support sn3112 and proximity
+
+
+endif # LEDSCREEN_DEVICES

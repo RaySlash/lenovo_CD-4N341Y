@@ -1,0 +1,6 @@
+mir3da: mir3da_13@13{
+      compatible = "mir3da";
+      reg = <0x27>;
+      int-gpio = <&gpio GPIOZ_10 GPIO_ACTIVE_LOW>;
+      status = "okay";
+};

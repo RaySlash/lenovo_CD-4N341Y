@@ -1,0 +1,6 @@
+kxtj3_2b: kxtj3_2b@2b{
+	compatible = "kionix,kionix_accel";
+	reg = <0x0E>;
+	int-gpio = <&gpio GPIOZ_10 GPIO_ACTIVE_LOW>;
+	status = "okay";
+};

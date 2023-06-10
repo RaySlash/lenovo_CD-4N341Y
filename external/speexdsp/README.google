@@ -1,0 +1,20 @@
+URL: http://git.xiph.org/speexdsp.git/
+     git clone http://git.xiph.org/speexdsp.git/ speexdsp
+License: BSD (Xiph.org variant)
+License File: COPYING
+Description:
+  Speex is an Open Source/Free Software patent-free audio compression format
+  designed for speech.
+
+Maintainer Notes:
+libspeexdsp.so is required for the speexrate_medium resampler used by ALSA in
+1.16 on pepperoni devices. It is obsolete as of 1.17, since [any necessary]
+resampling is now done in Chromium and not ALSA.
+
+It is currently prebuilt with the following:
+
+./autogen.sh
+./configure CC=$CAST_ROOT/prebuilt/toolchain/armv7a/bin/armv7a-cros-linux-gnueabi-gcc --with-sysroot=$CAST_ROOT/out/target/product/np8340/build_sysroot --host=armv7a-linux --prefix=/system --enable-neon --disable-examples
+make && make install DESTDIR=$(pwd)/prebuilt
+
+The libspeexdsp module will be pulled in by libasound_module_rate_speexrate.

@@ -1,0 +1,5 @@
+shtc3:shtc3@0x70 {
+	compatible = "shtc3";
+	reg = <0x70>;
+	status = "okay";
+};

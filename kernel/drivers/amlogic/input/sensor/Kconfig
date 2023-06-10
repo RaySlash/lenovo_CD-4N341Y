@@ -1,0 +1,53 @@
+menuconfig AMLOGIC_SENSOR
+	bool "Sensor devices"
+	---help---
+	  Say Y here to get to see options for sensor device drivers from
+	  all categories. This option alone does not add any kernel code.
+
+	  If you say N,all options in this submenu will be skipped and disabled.
+
+if AMLOGIC_SENSOR
+
+config AMLOGIC_SENSOR_CY8C4014
+	tristate "cy8c4014 sensor driver"
+	depends on I2C
+	default n
+	help
+	  Say yes here to support Cypress cy8c4014 sensor and proximity
+	  sensor
+	  Say yes here to support Cypress cy8c4014 sensor and proximity
+	  sensor
+
+config AMLOGIC_G_SENSOR
+	tristate "KXTJ3 sensordriver"
+	depends on I2C
+	default n
+	help
+	  Say yes here to support kionix KXTJ3 accel sensor 
+
+	  
+config AMLOGIC_T_H_SENSOR
+	tristate "Sensirion Humidity sensor driver"
+	depends on I2C
+	default n
+	help
+	  Say yes here to support Sensirion Humidity Sensors_SHTC3 sensor
+
+config AMLOGIC_L_P_SENSOR
+	tristate "Ambient Light sensor driver"
+	depends on I2C
+	default n
+	help
+	  Say yes here to support Ambient Light Sensor and Proximity Sensor
+
+config AMLOGIC_SENSOR_MIR3DA
+	tristate "mir3da sensor driver"
+	depends on I2C
+	default n
+	help
+	  Say yes here to support Cypress mir3da sensor and proximity
+	  sensor
+	  Say yes here to support Cypress mir3da sensor and proximity
+	  sensor
+
+endif # SENSOR_DEVICES

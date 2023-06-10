@@ -1,0 +1,12 @@
+BasedOnStyle: Google
+AllowShortBlocksOnASingleLine: false
+AllowShortFunctionsOnASingleLine: false
+
+AccessModifierOffset: -2
+ColumnLimit: 80
+CommentPragmas: NOLINT:.*
+DerivePointerAlignment: true
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+PenaltyExcessCharacter: 32

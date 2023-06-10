@@ -1,0 +1,44 @@
+***OVERVIEW***
+The font config library operates on a font cache file to do font queries, etc.
+This cache file is built/generated off of the font files in the directory
+"Font directory list" in fonts.conf, and the cache file is subsequently stored
+in "Font cache directory list" in fonts.conf. When the font config library is
+initialized, it checks if a cache file exists and then performs some checks to
+make sure the file is valid. If those conditions are not met, it generates the
+cache file on the spot. This generation can be expensive (~8 seconds), so we
+are deploying a prebuilt cache file to the device as part of the OTA package.
+
+
+***DIRECTORIES/FILES***
+complete: Contains prebuilt font cache generated off of all font files.
+
+minimalist: Contains prebuilt font cache generated off of small subset of font
+files. This gets used for platforms that define USE_MINIMALIST_FONTS.
+
+3830d5c3ddfd5cd38a049b759396e72e-le64.cache-4 (or something similar): Actual
+prebuilt font cache file.
+
+font_setup.sh: Copies the prebuilt cache file to the proper directory before
+cast_shell starts up.
+
+***MODIFYING FONT FILES***
+IMPORTANT: IF YOU ADD/ERASE/UPDATE FONT FILES IN usr/share/fonts YOU NEED TO
+REGENERATE THE PREBUILT CACHE FILE AND CHECK IT INTO THE REPO!
+
+***REGENERATING CACHE FILE***
+There will be an integration test that checks if the prebuilt cache file needs
+to be regenerated. See test for reasons why it would need regenerating. Note
+that the font config library will just generate the cache file on the spot if
+it detects an outdated/corrupt cache file; it will just take a long time.
+TODO(esum): Add name of integration test here once it's made.
+
+When you do need to regenerate the cache file:
+The cache file should get generated on the platform it will be used on, so it
+has to be pulled from the device after cast_shell generates it:
+1) Push new OTA to device containing any font updates.
+2) After system has booted up, rm /data/chrome/fontconfig/*
+3) Restart cast_shell (don't reboot), and wait for it to fully start.
+4) The new cache file should be in /data/chrome/fontconfig. You can adb pull it
+   to the proper directory on your desktop and commit it. Current repo location:
+   vendor/eureka/fonts/(complete|minimalist)
+

@@ -1,0 +1,6 @@
+sn3112_1: sn3112_1@54 {
+	compatible = "amlogic,sn3112_1";
+	reg = <0x54>;
+	sdb-gpio = <&gpio GPIOZ_1 0>;
+	/*sn3112-supply = <&mt6392_vcamaf_reg>;*/
+};

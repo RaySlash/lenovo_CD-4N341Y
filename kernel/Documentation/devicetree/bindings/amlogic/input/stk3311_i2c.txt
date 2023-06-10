@@ -1,0 +1,6 @@
+stk3311:stk3311@0x48 {
+	compatible = "STK3311";
+	reg = <0x48>;
+	interrupt_pin = <&gpio_ao GPIOAO_8 0>;
+	status = "okay";
+};

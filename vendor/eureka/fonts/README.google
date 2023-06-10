@@ -1,0 +1,15 @@
+URL:
+  Android fonts - GTV Chrome repo
+  Motoya fonts - copied from google3/third_party/java/android/android_sdk_linux/platforms/android_19/data/fonts at CL @57990561
+  Nanum fonts - downloaded from http://hangeul.naver.com/download.nhn
+  Noto fonts - copied from chromeos fonts (sent by jungshik@google.com)
+  Noto Color Emoji - downloaded from https://android.googlesource.com/platform/external/noto-fonts/+/lollipop-release
+  Roboto fonts - downloaded from https://www.google.com/fonts#UsePlace:use/Collection:Roboto
+
+License:
+  Apache V2 (See NOTICE)
+  Open Font License 1.1 (for Nanum)
+
+Description:
+  Fonts and fontconfig used for eureka_shell
+
